@@ -49,6 +49,7 @@ const Login = () => {
             backgroundColor: Agree ? "cyan" : "grey",
           },
         ]}
+        disabled={!Agree}
       >
         <Text>Login</Text>
       </TouchableOpacity>
@@ -94,5 +95,15 @@ const styles = StyleSheet.create({
   wrapper: {
     marginTop: 10,
     flexDirection: "row",
+    alignContent: "center",
+    alignItems: "center",
+    marginLeft: 10,
+  },
+  buttonStyle: {
+    marginTop: 10,
+    padding: 5,
+    marginHorizontal: 5,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
