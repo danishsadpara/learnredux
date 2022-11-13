@@ -5,9 +5,10 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
 const Login = () => {
+  const [Agree, setAgree] = useState(false);
   return (
     <View style={styles.container}>
       <Text style={styles.mainHeader}>Login Form</Text>
@@ -33,14 +34,22 @@ const Login = () => {
       </View>
       <View style={styles.wrapper}>
         <Checkbox
-        // value={}
-        // onValueChange={()=>}
+          value={Agree}
+          onValueChange={() => setAgree(!Agree)}
+          color={Agree ? "cyan" : undefined}
         />
         <Text style={styles.wrapperText}>
           I have read and agreed with this.
         </Text>
       </View>
-      <TouchableOpacity style={styles.buttonStyle}>
+      <TouchableOpacity
+        style={[
+          styles.buttonStyle,
+          {
+            backgroundColor: Agree ? "cyan" : "grey",
+          },
+        ]}
+      >
         <Text>Login</Text>
       </TouchableOpacity>
     </View>
