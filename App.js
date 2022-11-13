@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import Start from "./screens/Start";
+import Login from "./screens/Login";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -14,7 +15,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Wellcome to Redux learn">
-        <Stack.Screen name="wellcome to Redux learn" component={Home} />
+        <Stack.Screen name="wellcome to Redux learn" component={Login} />
         <Stack.Screen name="Start" component={Start} />
       </Stack.Navigator>
     </NavigationContainer>
