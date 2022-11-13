@@ -1,32 +1,56 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+  const onPress = () => setCount((prevCount) => prevCount + 1);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>React Redux</Text>
-      <Text style={styles.question}>What is Redux</Text>
-
-      <StatusBar style="auto" />
+      <Text style={styles.main}>React Redux</Text>
+      <View style={styles.countContainer}>
+        <Text>What is Redux in React Native </Text>
+      </View>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>Read About Redux</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
-    alignItems: "center",
     justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    // paddingHorizontal: 10,
   },
-  text: {
-    fontSize: 103,
-    color: "white",
+  main: {
     fontWeight: "bold",
+    fontSize: 105,
   },
-  question: {
-    color: "white",
-    letterSpacing: 10,
-    fontSize: 23,
+  button: {
+    alignItems: "center",
+    backgroundColor: "cyan",
+    // marginHorizontal: 105,
+    padding: 5,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+  },
+  countContainer: {
+    alignItems: "center",
+    // color: "cyan",
+    paddingHorizontal: 30,
+    // marginHorizontal: 105,
+    marginBottom: 10,
+    borderRadius: 10,
+    borderColor: "cyan",
+    borderWidth: 2,
+    padding: 5,
+
+    // backgroundColor: "blue",
   },
 });
+
+export default App;
