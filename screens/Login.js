@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import Checkbox from "expo-checkbox";
 const Login = () => {
@@ -25,6 +31,18 @@ const Login = () => {
           secureTextEntry={true}
         />
       </View>
+      <View style={styles.wrapper}>
+        <Checkbox
+        // value={}
+        // onValueChange={()=>}
+        />
+        <Text style={styles.wrapperText}>
+          I have read and agreed with this.
+        </Text>
+      </View>
+      <TouchableOpacity style={styles.buttonStyle}>
+        <Text>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -34,8 +52,9 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: "center",
-    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    // alignItems: "center",
+    alignContent: "center",
   },
   mainHeader: {
     fontSize: 20,
@@ -62,5 +81,9 @@ const styles = StyleSheet.create({
     padding: 3,
     fontSize: 10,
     opacity: 0.5,
+  },
+  wrapper: {
+    marginTop: 10,
+    flexDirection: "row",
   },
 });
