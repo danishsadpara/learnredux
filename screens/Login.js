@@ -38,9 +38,7 @@ const Login = () => {
           onValueChange={() => setAgree(!Agree)}
           color={Agree ? "cyan" : undefined}
         />
-        <Text style={styles.wrapperText}>
-          I have read and agreed with this.
-        </Text>
+        <Text style={styles.wrapperText}>I have read the aurguments.</Text>
       </View>
       <TouchableOpacity
         style={[
