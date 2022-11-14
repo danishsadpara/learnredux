@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Home = ({navigation}) => {
+const Home = ({ navigation, route }) => {
+  const { myName } = route.params; //stores the value get from login.js(name).
   const [count, setCount] = useState(0);
   const onPress = () => setCount((prevCount) => prevCount + 1);
 
   return (
     <View style={styles.container}>
+      <Text style={styles.myName}>Wellcome {myName}</Text>
       <Text style={styles.main}>React Redux</Text>
+
       <View style={styles.countContainer}>
-        <Text >What is Redux in React Native </Text>
+        <Text>What is Redux in React Native </Text>
       </View>
       <TouchableOpacity style={styles.button} navi>
         <Text>Read About Redux</Text>
@@ -51,6 +54,10 @@ const styles = StyleSheet.create({
     padding: 5,
 
     // backgroundColor: "blue",
+  },
+  myName: {
+    color: "blue",
+    fontWeight: "bold",
   },
 });
 

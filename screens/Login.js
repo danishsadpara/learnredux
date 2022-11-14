@@ -18,7 +18,7 @@ const Login = ({ navigation }) => {
     // return Alert.alert("hello");
     if (userName === "danish" && userPassword === "sadpara") {
       Alert.alert(`thank you ${userName}`);
-      navigation.navigate("Home");
+      navigation.navigate("Home", { myName :`${userName}`});  //pass name to home to display
     } else {
       Alert.alert(`invalid credentials`);
     }
