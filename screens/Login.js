@@ -1,4 +1,5 @@
 import {
+  Alert,
   StyleSheet,
   Text,
   TextInput,
@@ -7,8 +8,22 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
-const Login = () => {
+const Login = ({ navigation }) => {
   const [Agree, setAgree] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  const submit = () => {
+    console.log("every thing is going well");
+    // return Alert.alert("hello");
+    if (userName === "danish" && userPassword === "sadpara") {
+      Alert.alert(`thank you ${userName}`);
+      navigation.navigate("Home");
+    } else {
+      Alert.alert(`invalid credentials`);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.mainHeader}>Login Form</Text>
@@ -21,6 +36,8 @@ const Login = () => {
           style={styles.inputbox}
           autoCapitalize="none"
           autoCorrect={false}
+          value={userName}
+          onChangeText={(actualData) => setUserName(actualData)}
         />
       </View>
       <View style={styles.inputs}>
@@ -30,6 +47,8 @@ const Login = () => {
           autoCapitalize="none"
           autoCorrect={false}
           secureTextEntry={true}
+          value={userPassword}
+          onChangeText={(actualData) => setUserPassword(actualData)}
         />
       </View>
       <View style={styles.wrapper}>
@@ -38,7 +57,7 @@ const Login = () => {
           onValueChange={() => setAgree(!Agree)}
           color={Agree ? "cyan" : undefined}
         />
-        <Text style={styles.wrapperText}>I have read the aurguments.</Text>
+        <Text style={styles.wrapperText}>I agree</Text>
       </View>
       <TouchableOpacity
         style={[
@@ -48,6 +67,7 @@ const Login = () => {
           },
         ]}
         disabled={!Agree}
+        onPress={() => submit()}
       >
         <Text>Login</Text>
       </TouchableOpacity>
